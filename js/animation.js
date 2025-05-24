@@ -79,7 +79,7 @@ function getSRC(num) {
 function updateIndexWins(i){ slideWins[i] = (slideWins[i] >=2) ? 0 : slideWins[i] + 1;}
 
 var SPEED_FALLS = 2;
-var	arrSpeed = [2, 1, 2, 1, 3];
+var	arrSpeed = [1, 0.5, 2, 0.5, 3];
 
 // The direction of movement
 var flyRight = [false, false, true, true, true];
