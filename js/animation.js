@@ -80,6 +80,7 @@ function updateIndexWins(i){ slideWins[i] = (slideWins[i] >=2) ? 0 : slideWins[i
 
 var SPEED_FALLS = 2;
 var	arrSpeed = [1, 0.5, 2, 0.5, 3];
+var shootDelay = [0, 300, 200, 300, 100]
 
 // The direction of movement
 var flyRight = [false, false, true, true, true];
@@ -131,8 +132,11 @@ $('#goal5').click(function() {_shot(4)});
 function _shot(i) {
 	if (startGame){
 		if (resolutionShot){
-			$('#countHits').text(++countHits);
-			arrFly[i] = false;
+			//Delay on shoot success. Like it's all on big
+			setTimeout(() => {
+				$('#countHits').text(++countHits);
+				arrFly[i] = false;
+			}, shootDelay[i] )
 		}
 	}
 }
