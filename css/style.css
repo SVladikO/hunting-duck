@@ -43,6 +43,10 @@ li{
   cursor: url(../img/aim.gif) 23 22, url(../img/aim.cur) 23 22,cell;
 }
 
+.page:hover{
+  cursor: url(../img/aim.gif) 23 22, url(../img/aim.cur) 23 22,cell;
+}
+
 #bg1{
   height: 100%;
 	width:100%;
