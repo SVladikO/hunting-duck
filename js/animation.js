@@ -187,7 +187,7 @@ var restarBool = false;
 
 var countHits = 0;
 
-var defaultTime = 10;
+var defaultTime = 110;
 var usTimer = defaultTime;
 var minutes = 0;
 var seconds = 0;
