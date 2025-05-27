@@ -8,6 +8,27 @@ var	goalsStartTop  = [0,0,0,0,0];
 
 var	goalsId = ['#goal1','#goal2','#goal3','#goal4','#goal5'];
 
+var sound_gun = 'mp3/sound_gun.mp3';
+var reload = 'mp3/reload.mp3';
+var ricochet = 'mp3/ricochet.mp3';
+
+var startGame = false;
+var restarBool = false;
+
+var countHits = 0;
+
+var defaultTime = 110;
+var usTimer = defaultTime;
+var minutes = 0;
+var seconds = 0;
+
+var $sound = $('#sound');
+var $mute = $('#mute');
+var soundBool = true;
+
+var count_cartridges = 0;
+var resolutionShot = true;
+
 // Filling coordinate 
 function setXY(){
 	for (var i = 0; i < goalsId.length; i++) {
@@ -43,7 +64,6 @@ function flyGoal(){
 		}
 	}	
 };
-
 
 var	slideWins = [0, 1, 2, 2, 0];
 
@@ -180,28 +200,6 @@ function displayTip(disp){
 setInterval(function(){ 
 	if(startGame) myTimer();
 }, 1000);
-
-
-var sound_gun = 'mp3/sound_gun.mp3';
-var reload = 'mp3/reload.mp3';
-var ricochet = 'mp3/ricochet.mp3';
-
-var startGame = false;
-var restarBool = false;
-
-var countHits = 0;
-
-var defaultTime = 110;
-var usTimer = defaultTime;
-var minutes = 0;
-var seconds = 0;
-
-var $sound = $('#sound');
-var $mute = $('#mute');
-var soundBool = true;
-
-var count_cartridges = 0;
-var resolutionShot = true;
 
 const prepareGame = () => {
 	startGame = true;
