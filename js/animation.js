@@ -122,11 +122,6 @@ function checkCoordinate(i, obj){
 	}
 }
 
-
-
-
-var countHits = 0;
-
 $('#goal1').click(function() {_shot(0)});
 $('#goal2').click(function() {_shot(1)});
 $('#goal3').click(function() {_shot(2)});
@@ -142,17 +137,9 @@ function _shot(i) {
 	}
 }
 
-
-
 function effects(){
 	audioEffect((resolutionShot)? sound_gun : ricochet); 
 }
-
-
-var sound_gun = 'mp3/sound_gun.mp3';
-var reload = 'mp3/reload.mp3';
-var ricochet = 'mp3/ricochet.mp3';
-
 
 function audioEffect(sound) {
 	if(soundBool){
@@ -161,6 +148,7 @@ function audioEffect(sound) {
 	}
 }
 
+
 // Recharge cartridges after press space
 $(window).keypress(function (e) {
 	if (e.keyCode === 0 || e.keyCode === 32) {
@@ -168,6 +156,8 @@ $(window).keypress(function (e) {
 		replaceCartridge();		
 	}
 });
+
+$('#tip').click(() => replaceCartridge())
 
 function replaceCartridge() {
 	$("#cartridges img").each(function(index){
@@ -185,16 +175,36 @@ function displayTip(disp){
 
 setInterval(function(){ 
 	if(startGame) myTimer();
-
 }, 1000);
+
+
+var sound_gun = 'mp3/sound_gun.mp3';
+var reload = 'mp3/reload.mp3';
+var ricochet = 'mp3/ricochet.mp3';
 
 var startGame = false;
 var restarBool = false;
 
-var defaultTime = 110;
+var countHits = 0;
+
+var defaultTime = 10;
 var usTimer = defaultTime;
 var minutes = 0;
 var seconds = 0;
+
+var $sound = $('#sound');
+var $mute = $('#mute');
+var soundBool = true;
+
+var count_cartridges = 0;
+var resolutionShot = true;
+
+const prepareGame = () => {
+	startGame = true;
+	usTimer = defaultTime;
+	countHits = 0;
+	$('#countHits').text(0);
+}
 
 function myTimer() {
 	if(usTimer == 0) {
@@ -241,13 +251,8 @@ function showMenu() {
 	$('#popapStart').css('display','block');
 }
 
-var $sound = $('#sound');
-var $mute = $('#mute');
-var soundBool = true;
-
 $sound.click(function() {switchSound('none','block', false)});
 $mute.click(function() {switchSound('block','none', true)});
-
 
 function switchSound(d1, d2, bool) {
 	$sound.css('display', d1);
@@ -270,14 +275,17 @@ $('.levels li').click(function() {
 	if(index == 0) { 
 		src = bg1;
 		IMG_FALLS = falls1;
+		prepareGame()
 	}
 	if(index == 1) { 
 		src = bg2;
 		IMG_FALLS = falls2;
+		prepareGame()
 	}
 	if(index == 2) { 
 		src = bg3;
 		IMG_FALLS = falls3;
+		prepareGame()
 	}
 	$bg.attr('src',src);
 	commonStartFunc(0);
@@ -294,10 +302,6 @@ $('#pauseGame').click(function() {
 	$('#playGame').css('display', 'block');
 	pause = true;
 });
-
-
-var count_cartridges = 0;
-var resolutionShot = true;
 
 $('body').click(function() { 
 	if (startGame){
