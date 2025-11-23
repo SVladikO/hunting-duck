@@ -4,6 +4,20 @@
 	<meta charset="UTF-8">
 	<title>Hunting</title>
 	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.move_right {
+			animation-name: exampleRight;
+			animation-duration: 12s;
+		}
+
+		@keyframes exampleRight {
+			0%   {left:-300px; top:0px;}
+			/* 25%  {left:200px; top:0px;}
+			50%  {left:400px; top:200px;}
+			75%  {left:600px; top:200px;} */
+			100% {left:120%; top:0px;}
+		}
+	</style>
 </head>
 <body>
 	<div class="page">
@@ -15,6 +29,7 @@
 			<img src="img/duck_w_up.png" alt="" id="goal3">
 			<img src="img/duck_w_up.png" alt="" id="goal4">
 			<img src="img/duck_w_up.png" alt="" id="goal5">
+			<img src="img/bird.gif" class="move_right">
 		</div><!-- .goals -->
 		<p id="time"></p>
 		<p id="countHits">0</p>

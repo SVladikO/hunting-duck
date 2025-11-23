@@ -40,7 +40,8 @@ function setXY(){
 setXY();
 
 // It is start animation
-requestAnimationFrame(moveGoal);		
+requestAnimationFrame(moveGoal);	
+
 
 function moveGoal(){
 	if(startGame){
@@ -75,7 +76,7 @@ var	IMG_FALLS = "img/goalDown.png";
 // Counts the number of circles requestAnimationFrame
 var stepByWins = 0;
 
-function moveWins(){
+function moveWins() {
 	if (stepByWins >= 60){
 		for (var i = 0; i < goalsId.length; i++) {
 			if(arrFly[i]){
